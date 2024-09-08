@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:8181/api/v1/student'; // Replace with your actual API URL
+const apiUrl = 'http://localhost:8181/api/v1/student';
 
 export const getStudents = () => axios.get(apiUrl);
 
