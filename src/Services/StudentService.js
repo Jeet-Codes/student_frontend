@@ -6,7 +6,7 @@ export const getStudents = () => axios.get(apiUrl);
 
 export const getStudentById = (id) => axios.get(`${apiUrl}/${id}`);
 
-export const createStudent = (student) => axios.post(apiUrl, student);
+export const createStudent = (student) => axios.post(`${apiUrl}/create`, student);
 
 export const updateStudent = (id, student) => axios.put(`${apiUrl}/${id}`, student);
 

@@ -42,67 +42,85 @@ const StudentForm = () => {
   };
 
   return (
+<div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md">
+  <h2 className="text-xl font-bold mb-4">
+    {id ? 'Edit Student' : 'Add Student'}
+  </h2>
+  <form onSubmit={handleSubmit} className="space-y-4">
     <div>
-      <h2>{id ? 'Edit Student' : 'Add Student'}</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={student.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Contact:
-          <input
-            type="text"
-            name="contact"
-            value={student.contact}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Details:
-          <input
-            type="text"
-            name="details"
-            value={student.details}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={student.address}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Pincode:
-          <input
-            type="text"
-            name="pincode"
-            value={student.pincode}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">{id ? 'Update' : 'Create'}</button>
-      </form>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Name:
+      </label>
+      <input
+        type="text"
+        name="name"
+        value={student.name}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
     </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Contact:
+      </label>
+      <input
+        type="text"
+        name="contact"
+        value={student.contact}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Details:
+      </label>
+      <input
+        type="text"
+        name="details"
+        value={student.details}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Address:
+      </label>
+      <input
+        type="text"
+        name="address"
+        value={student.address}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Pincode:
+      </label>
+      <input
+        type="text"
+        name="pincode"
+        value={student.pincode}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+    <button
+      type="submit"
+      className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+    >
+      {id ? 'Update' : 'Create'}
+    </button>
+  </form>
+</div>
+
   );
 };
 
