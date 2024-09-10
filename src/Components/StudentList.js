@@ -34,7 +34,7 @@ const StudentList = () => {
       if (result.isConfirmed) {
         try {
           await deleteStudent(id);
-          fetchStudents(); // Refresh list after deletion
+          fetchStudents();
           toast.success('Student deleted successfully');
         } catch (error) {
           console.error('Error deleting student', error);
@@ -55,9 +55,9 @@ const StudentList = () => {
       confirmButtonText: 'Yes, logout!',
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('token'); // Assuming JWT token is in localStorage
+        localStorage.removeItem('token'); 
         toast.success('Logged out successfully');
-        navigate('/login'); // Redirect to login page after logout
+        navigate('/login'); 
       }
     });
   };
