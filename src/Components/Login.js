@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -13,12 +14,14 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+ const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8181/login', credentials);
       console.log('Logged in successfully', response.data);
+      navigate('/students')
+
     } catch (error) {
       console.error('Error logging in', error);
     }

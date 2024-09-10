@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createStudent, updateStudent, getStudentById } from '../Services/StudentService';
 import { useParams, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const StudentForm = () => {
   const [student, setStudent] = useState({
@@ -10,12 +11,11 @@ const StudentForm = () => {
     address: '',
     pincode: ''
   });
-  const { id } = useParams(); // To determine if we're editing an existing student
-  const navigate = useNavigate(); // Updated hook for navigation
+  const { id } = useParams(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
-      // Fetch the existing student if the id is present (update scenario)
       getStudentById(id).then((response) => setStudent(response.data));
     }
   }, [id]);
@@ -31,11 +31,13 @@ const StudentForm = () => {
     e.preventDefault();
     try {
       if (id) {
-        await updateStudent(id, student); // Update existing student
+        await updateStudent(id, student); 
+        toast.success('student update successfully')
       } else {
-        await createStudent(student); // Create new student
+        await createStudent(student);
+        toast.success('student create successfully')
       }
-      navigate('/students'); // Redirect to student list after save
+      navigate('/students');
     } catch (error) {
       console.error('Error saving student', error);
     }
